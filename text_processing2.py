@@ -73,15 +73,20 @@ def to_camel_case(underscore_str):
     """
     camelcase_str = ""
     underscore_str = underscore_str.strip("_")
-    underscore_str = underscore_str.lower()
-    no_undersocre_strings = underscore_str.split("_")
 
-    if no_undersocre_strings != "":
-        for i, word in enumerate(no_undersocre_strings):
-            if word != "":
-                for j, string in enumerate(word):
-                    if i !=0 and j == 0:
-                        string = string.upper()
-                    camelcase_str += string
+    if underscore_str.count("_") > 0 :
+        underscore_str = underscore_str.lower()
+        no_undersocre_strings = underscore_str.split("_")
+
+        if no_undersocre_strings != "":
+            for i, word in enumerate(no_undersocre_strings):
+                if word != "":
+                    for j, string in enumerate(word):
+                        if i !=0 and j == 0:
+                            string = string.upper()
+                        camelcase_str += string
+    
+    else:
+        camelcase_str = underscore_str
     
     return camelcase_str
