@@ -73,7 +73,6 @@ def to_camel_case(underscore_str):
     """
     camelcase_str = ""
     underscore_str = underscore_str.strip("_")
-    underscore_str = underscore_str.lower()
     no_undersocre_strings = underscore_str.split("_")
 
     if no_undersocre_strings != "":
@@ -82,6 +81,10 @@ def to_camel_case(underscore_str):
                 for j, string in enumerate(word):
                     if i !=0 and j == 0:
                         string = string.upper()
+                    elif i !=0 and j != 0:
+                        string = string.lower()
                     camelcase_str += string
-    
+
     return camelcase_str
+
+print(to_camel_case("alreadyCamel"))
